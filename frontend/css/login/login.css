@@ -1,0 +1,116 @@
+.div-form{
+    height: 100%;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form{
+    min-height: 70%;
+    width: 500px;
+    background-color: rgba(124, 23, 206, 0.712);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 25px;
+    border: 1px solid #ffffffad;
+    transition: min-height 1s ease;
+}
+
+h1{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    margin-bottom: 15px;
+}
+
+.input-username, .input-password{
+    height: 45px;
+    width: 80%;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    padding-left: 15px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+.div-checkbox-forgotten{
+    height: 20px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.div-checkbox{
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-checkbox-remember{
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+.div-checkbox-p{
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #fff;
+}
+
+.div-checkbox-a{
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #fff;
+}
+
+.button-login{
+    height: 45px;
+    width: 80%;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    color:  rgba(63, 9, 107, 0.712);
+    transition: 0.2s ease;
+}
+.button-login:hover{
+    background-color:rgb(255, 224, 49);
+    color: rgba(63, 9, 107, 0.712);
+}
+
+.div-signup{
+    height: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-signup-a{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #fff;
+}
+
+.form-span{
+    height: 30px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #fff;
+}

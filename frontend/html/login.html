@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBreak | Login</title>
+    <link rel="stylesheet" href="/frontend/css/login/body.css">
+    <link rel="stylesheet" href="/frontend/css/login/login.css">
+</head>
+<body>
+    <div class="login-box1">
+        <div class="login-box1-inner">
+            <h1 class="login-box1-h1">Dashbreak 🏆</h1>
+            <p class="login-box1-p">Take breaks, earn points, and climb the leaderboard — all while staying in sync with your crew. Dashbreak turns your workday into a game of balance, where every pause counts and every comeback is a win. Join the challenge. Track your time. Power up your productivity.</p>
+        </div>
+    </div>
+    <div class="div-form">
+        <form class="login-form">
+            <h1>Welcome</h1>
+            <input type="text" class="input-username" maxlength="42" placeholder="Username" required>
+            <input type="password" class="input-password" maxlength="42" placeholder="Password" required>
+            <div class="div-checkbox-forgotten">
+                <div class="div-checkbox">
+                    <input type="checkbox" class="input-checkbox-remember"> <p class="div-checkbox-p">Remember?</p>
+                </div>
+                <div class="div-forgotten">
+                    <a href="" class="div-checkbox-a">Forgotten?</a>
+                </div>            
+            </div>
+            <button type="submit" class="button-login">Login</button>
+            <div class="div-signup">
+                <a class="div-signup-a" href="./registerUser.html">Don't have an account?</a>
+            </div>
+            <span class="form-span"></span>
+        </form>
+    </div>
+    <script type="module" src="/backend/userModel.js"></script>
+    <script type="module" src="/backend/db.js"></script>
+    <script type="module" src="/frontend/js/login.js"></script>
+</body>
+</html>
