@@ -13,6 +13,8 @@ const inputEmail = document.querySelector('.input-register-email')
 const inputPassword = document.querySelector('.input-register-password')
 const inputConfirmPassword = document.querySelector('.input-register-confirmpassword')
 const buttonRegister = document.querySelector('.button-register-submit')
+const divForm = document.querySelector('.div-register-form')
+const h1 = document.querySelector('.h1-register-form')
 
 function uniqueId(){
     const newId = Math.floor(Math.random() * 9999999999999)
@@ -68,10 +70,10 @@ buttonRegister.addEventListener('click', (e)=>{
 
     const id = uniqueId()
 
-    const emailRegistered = database.find(user => user.email === inputEmail.value)
-    const userNameRegistered = database.finc(user => user.userName === inputUserName.value)
+    const userEmailRegistered = database.find(user => user.email === inputEmail.value)
+    const userNameRegistered = database.find(user => user.userName === inputUserName.value)
 
-    if(emailRegistered){
+    if(userEmailRegistered){
         console.log(`The user e-mail is already registered!`)
     }else if(userNameRegistered){
         console.log(`The username is already in use!`)
@@ -86,6 +88,8 @@ buttonRegister.addEventListener('click', (e)=>{
         )
         addUser(newUser)
         console.log(`The user ${newUser.email} was added to database successful ✔`)
+        divForm.style.display = 'none'
+        h1.textContent = 'User Successful Registered 😁'
     }
 
     console.log(database)

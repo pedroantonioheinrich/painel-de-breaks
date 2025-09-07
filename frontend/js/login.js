@@ -64,6 +64,7 @@ buttonLogin.addEventListener('click', (e)=>{
             spanLogin.textContent =  `Login is successful ✔`
             userFound.setIsLogged(true)
             console.log(userFound)
+            localStorage.setItem('userLogged', JSON.stringify(userFound))
             setInterval(()=>{
                 window.location.href = '/frontend/html/userPanel.html'
             },2000)

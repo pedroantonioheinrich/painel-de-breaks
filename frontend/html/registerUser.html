@@ -8,20 +8,20 @@
 </head>
 <body>
     <form class="register-form">
-        <h1>User Registration</h1>
-        <input type="text" class="input-register-firstname" maxlength="42" placeholder="First Name" required>
-        <input type="text" class="input-register-lastname" maxlength="42" placeholder="Last Name" required>
-        <input type="text" class="input-register-username" maxlength="42" placeholder="Username" required>
-        <input type="text" class="input-register-email"  maxlength="42" placeholder="E-mail" required>
-        <input type="password" class="input-register-password" maxlength="42" placeholder="Password" required>
-        <input type="password" class="input-register-confirmpassword" placeholder="Confirm Password" maxlength="42" required>
-        <input type="file" class="input-register-img" required>
-        <button type="submit" class="button-register-submit">Register User</button>
+        <h1 class="h1-register-form">User Registration</h1>
+        <div class="div-register-form">
+            <input type="text" class="input-register-firstname" maxlength="42" placeholder="First Name" required>
+            <input type="text" class="input-register-lastname" maxlength="42" placeholder="Last Name" required>
+            <input type="text" class="input-register-username" maxlength="42" placeholder="Username" required>
+            <input type="text" class="input-register-email"  maxlength="42" placeholder="E-mail" required>
+            <input type="password" class="input-register-password" maxlength="42" placeholder="Password" required>
+            <input type="password" class="input-register-confirmpassword" placeholder="Confirm Password" maxlength="42" required>
+            <input type="file" class="input-register-img" required>
+            <button type="submit" class="button-register-submit">Register User</button>
+        </div>
         <a href="/frontend/html/login.html" class="register-back-a">Back</a>
     </form>
     
-    <script type="module" src="/backend/userModel.js"></script>
-    <script type="module" src="/backend/db.js"></script>
     <script type="module" src="/frontend/js/register.js"></script>
 </body>
 </html>

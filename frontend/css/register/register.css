@@ -25,10 +25,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     border-radius: 25px;
     border: 1px solid #ffffffad;
-    transition: min-height 1s ease;
 }
 
 h1{
@@ -37,6 +35,18 @@ h1{
     font-weight: 700;
     color: rgb(255, 255, 255);
     margin-bottom: 15px;
+}
+
+.div-register-form{
+    min-height: 90%;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    transition: min-height 1s ease;
 }
 
 .input-register-firstname, .input-register-lastname, .input-register-username,  .input-register-email, .input-register-password, .input-register-confirmpassword {

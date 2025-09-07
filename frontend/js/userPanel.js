@@ -5,17 +5,26 @@ const database = Db.dataBase
 console.log(database)
 
 
-const imgProfile = document.querySelector('.idebar-img')
+const imgProfile = document.querySelector('.sidebar-img')
 const usernameProfile = document.querySelector('.sidebar-username-p')
+const logoutButton = document.querySelector('.main-nav-button-logout')
 
 
 const userLogged = database.find(user => user.isLogged === true)
 
-userLogged.isLogged = true
+const savedUser = JSON.parse(localStorage.getItem('userLogged'))
 
-if(userLogged.isLogged === true){
-    imgProfile.src = '/frontend/asset/bg-login.png'
+if (savedUser && savedUser.isLogged) {
+    imgProfile.src = savedUser.userImg;
+    usernameProfile.textContent = savedUser.userName;
+}
 
-    
-// //TODO
-// adicionar o estado true de logado do usuario no localstorage
+
+logoutButton.addEventListener('click',()=>{
+    if (userLogged) {
+        userLogged.isLogged = false;
+    }
+    localStorage.removeItem('userLogged')
+    window.location.href = '/frontend/html/login.html'
+})
+
