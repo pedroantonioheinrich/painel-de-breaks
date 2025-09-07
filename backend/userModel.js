@@ -11,6 +11,7 @@ export default class User{
         this.pointsEarned = 0;
         this.daysWorked = 0;
         this.daysOnRightTime = 0;
+        this.isLogged = false;
     }
 
     setUserName(newUsername){
@@ -33,6 +34,9 @@ export default class User{
     }
     setDaysOnRightTime(daysOnTime){
         return this.setDaysOnRightTime = daysOnTime
+    }
+    setIsLogged(bool){
+        return this.isLogged = bool
     }
 
     getId(){
@@ -61,5 +65,8 @@ export default class User{
     }
     getDaysOnRightTime(){
         return this.daysOnRightTime
+    }
+    getIsLogged(){
+        return this.isLogged
     }
 }
