@@ -1,10 +1,9 @@
-import Db from '../../backend/db.js'
 import User from '../../backend/userModel.js'
+// import { v4 } from 'uuid';
+import { addToDB, findUserByEmailOrUsername } from '../../backend/db.js';
 
-const database = Db.dataBase
-const addUser = Db.addToDb
 
-console.log(database)
+const addUser = addToDB
 
 const inputFirstName = document.querySelector('.input-register-firstname')
 const inputLastName = document.querySelector('.input-register-lastname')
@@ -13,15 +12,12 @@ const inputEmail = document.querySelector('.input-register-email')
 const inputPassword = document.querySelector('.input-register-password')
 const inputConfirmPassword = document.querySelector('.input-register-confirmpassword')
 const buttonRegister = document.querySelector('.button-register-submit')
+const inputImg = document.querySelector('.input-register-img')
 const divForm = document.querySelector('.div-register-form')
 const h1 = document.querySelector('.h1-register-form')
 
-function uniqueId(){
-    const newId = Math.floor(Math.random() * 9999999999999)
-    return newId
-}
 
-buttonRegister.addEventListener('click', (e)=>{
+buttonRegister.addEventListener('click', async (e)=>{
 
     e.preventDefault()
 
@@ -68,29 +64,42 @@ buttonRegister.addEventListener('click', (e)=>{
         return
     }
 
-    const id = uniqueId()
+    const id = Math.floor(Math.random() * 999999999999)
 
-    const userEmailRegistered = database.find(user => user.email === inputEmail.value)
-    const userNameRegistered = database.find(user => user.userName === inputUserName.value)
+    const existingUser = await findUserByEmailOrUsername(
+        inputEmail.value.trim(),
+        inputUserName.value.trim()
+    );
 
-    if(userEmailRegistered){
-        console.log(`The user e-mail is already registered!`)
-    }else if(userNameRegistered){
-        console.log(`The username is already in use!`)
-    }else{
-        const newUser = new User(
-            id, 
-            inputFirstName.value.trim(), 
-            inputLastName.value.trim(), 
-            inputUserName.value.trim(), 
-            inputEmail.value.trim(), 
-            inputConfirmPassword.value.trim()
-        )
-        addUser(newUser)
-        console.log(`The user ${newUser.email} was added to database successful ✔`)
-        divForm.style.display = 'none'
-        h1.textContent = 'User Successful Registered 😁'
+    if (existingUser) {
+        if (existingUser.email === inputEmail.value.trim()) {
+            console.log('The user e-mail is already registered!');
+            return;
+        }
+        if (existingUser.userName === inputUserName.value.trim()) {
+            console.log('The username is already in use!');
+            return;
+        }
     }
 
-    console.log(database)
+    const imageFile = inputImg.files[0]
+    const imagePath = imageFile ? `/uploads/${imageFile.name}` : '';
+
+    const newUser = new User(
+        id, 
+        inputFirstName.value.trim(), 
+        inputLastName.value.trim(), 
+        inputUserName.value.trim(), 
+        inputEmail.value.trim(), 
+        inputConfirmPassword.value.trim(),
+        imagePath
+    )
+    try{
+        await addUser(newUser)
+        console.log(`The user was added to database successful ✔`)
+    } catch( err ) {
+        console.error('Erro ao registrar usuário:', err);
+    }
+    divForm.style.display = 'none'
+    h1.textContent = 'User Successful Registered 😁'
 })

@@ -1,9 +1,3 @@
-import Db from '../../backend/db.js'
-
-const database = Db.dataBase
-
-
-console.log(Db)
 
 // ------------------------------------------------------------------------------------------
 
